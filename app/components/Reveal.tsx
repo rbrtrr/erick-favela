@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
   delay?: number;
   y?: number;
   className?: string;
+  mode?: "load" | "scroll";
 };
 
 export default function Reveal({
@@ -15,12 +16,24 @@ export default function Reveal({
   delay = 0,
   y = 40,
   className,
+  mode = "scroll",
 }: RevealProps) {
+  const animationProps =
+    mode === "load"
+      ? {
+          initial: { opacity: 0, y },
+          animate: { opacity: 1, y: 0 },
+        }
+      : {
+          initial: { opacity: 0, y },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true, amount: 0.2 },
+        };
+
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y }}
-      animate={{ opacity: 1, y: 0 }}
+      {...animationProps}
       transition={{
         duration: 0.9,
         delay,
