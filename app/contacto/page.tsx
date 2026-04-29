@@ -134,6 +134,80 @@ export default function ContactoPage() {
           </div>
         </div>
       </section>
-    </main>
+       <footer className="footer">
+                          <div className="container footer-grid">
+                            <Reveal delay={0.08}>
+                              <div className="footer-brand">
+                                <div className="footer-logo-row">
+                                  <img
+                                    src="/logo-header.png"
+                                    alt="Logo Erick Favela"
+                                    className="footer-logo"
+                                  />
+                                  <div>
+                                    <p className="footer-brand-title">Nutriólogo Erick Favela</p>
+                                    <p className="footer-brand-subtitle">Mexicali · Online · USA</p>
+                                  </div>
+                                </div>
+                  
+                                <p className="footer-description">
+                                  Nutrición personalizada para transformar tu salud, tus hábitos y
+                                  tu composición corporal con una estrategia realista y
+                                  sostenible.
+                                </p>
+                              </div>
+                            </Reveal>
+                  
+                            <Reveal delay={0.14}>
+                              <div className="footer-links">
+                                <p className="footer-heading">Navegación</p>
+                                <a href="#about">Sobre Erick</a>
+                                <a href="#services">Servicios</a>
+                                <a href="#results">Resultados</a>
+                                <a href="#contact">Contacto</a>
+                              </div>
+                            </Reveal>
+                  
+                            <Reveal delay={0.2}>
+                              <div className="footer-links">
+                                <p className="footer-heading">Servicios</p>
+                                <a href="#">Consulta presencial</a>
+                                <a href="#">Consulta online</a>
+                                <a href="#">Planes personalizados</a>
+                                <a href="#">Transformación corporal</a>
+                              </div>
+                            </Reveal>
+                  
+                            <Reveal delay={0.26}>
+                              <div className="footer-links">
+                                <p className="footer-heading">Contacto</p>
+                                <a
+                                  href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  WhatsApp
+                                </a>
+                                <a href="mailto:contacto@erickfavela.com">
+                                  contacto@erickfavela.com
+                                </a>
+                                <a
+                                  href="https://instagram.com/nutriologo.erickfavela"
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  Instagram
+                                </a>
+                                <span>Mexicali, Baja California</span>
+                              </div>
+                            </Reveal>
+                          </div>
+                  
+                          <div className="container footer-bottom">
+                            <p>© 2026 Nutriólogo Erick Favela. Todos los derechos reservados.</p>
+                            <p>Diseño profesional enfocado en confianza, claridad y conversión.</p>
+                          </div>
+                        </footer>
+                      </main>
   );
 }
