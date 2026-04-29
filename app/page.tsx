@@ -4,6 +4,7 @@ import { useState } from "react";
 import Reveal from "./components/Reveal";
 import AnimatedText from "./components/AnimatedText";
 import Link from "next/link";
+import Header from "./components/Header";
 
 const services = [
   {
@@ -138,51 +139,7 @@ const visibleSlides = getVisibleSlides();
 
   return (
     <main className="site">
-      <header className="header">
-        <div className="container nav">
-          <Reveal delay={0.05} mode="load">
-            <div className="logo">
-              <img
-                src="/logo-header.png"
-                alt="Logo Erick Favela"
-                className="logo-image"
-              />
-              <div>
-                <AnimatedText
-                  as="p"
-                  text="Nutriólogo Erick Favela"
-                  className="logo-title"
-                  delay={0.08}
-                  mode="load"
-                />
-                <Reveal delay={0.18} mode="load">
-                  <p className="logo-subtitle">Mexicali · Online · USA</p>
-                </Reveal>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.15} mode="load">
-            <nav className="menu">
-              <a href="/about">Sobre Erick</a>
-              <a href="/servicios">Servicios</a>
-              <a href="/resultados">Resultados</a>
-              <a href="/contacto">Contacto</a>
-            </nav>
-          </Reveal>
-          <Reveal delay={0.22} mode="load">
-            <a
-              className="btn btn-primary"
-              href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
-              target="_blank"
-              rel="noreferrer"
-            >
-              Agendar
-            </a>
-                </Reveal>
-
-        </div>
-      </header>
+      <Header />
 
       <section className="hero">
         <div className="container hero-grid">
