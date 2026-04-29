@@ -14,73 +14,67 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="header">
-      <div className="container nav">
-        <Reveal delay={0.05} mode="load">
-          <a href="/" className="logo">
-            <img
-              src="/logo-header.png"
-              alt="Logo Erick Favela"
-              className="logo-image"
-            />
+    <header className="site-header">
+      <Reveal delay={0.08} mode="load">
+        <a href="/" className="brand">
+          <div className="brand-mark">EF</div>
 
-            <div>
-              <p className="logo-title">Nutriólogo Erick Favela</p>
-              <p className="logo-subtitle">Mexicali · Online · USA</p>
-            </div>
-          </a>
-        </Reveal>
+          <div className="brand-copy">
+            <p className="logo-title">Nutriólogo Erick Favela</p>
+            <p className="logo-subtitle">Mexicali · Online · USA</p>
+          </div>
+        </a>
+      </Reveal>
 
-        <Reveal delay={0.15} mode="load">
-          <nav className="menu desktop-menu">
-            {navItems.map((item) => (
-              <a key={item.href} href={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </Reveal>
-
-        <Reveal delay={0.22} mode="load">
-          <a
-            className="btn btn-primary desktop-cta"
-            href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
-            target="_blank"
-            rel="noreferrer"
-          >
-            Agendar
-          </a>
-        </Reveal>
-
-        <button
-          className={`mobile-menu-button ${open ? "is-open" : ""}`}
-          type="button"
-          onClick={() => setOpen((prev) => !prev)}
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          aria-expanded={open}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-
-        <div className={`mobile-menu-panel ${open ? "is-open" : ""}`}>
+      <Reveal delay={0.15} mode="load">
+        <nav className="menu desktop-menu">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            <a key={item.href} href={item.href}>
               {item.label}
             </a>
           ))}
+        </nav>
+      </Reveal>
 
-          <a
-            className="mobile-menu-cta"
-            href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => setOpen(false)}
-          >
-            Agendar consulta
+      <Reveal delay={0.22} mode="load">
+        <a
+          className="btn btn-primary desktop-cta"
+          href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
+          target="_blank"
+          rel="noreferrer"
+        >
+          Agendar
+        </a>
+      </Reveal>
+
+      <button
+        className={`mobile-menu-button ${open ? "is-open" : ""}`}
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        aria-label={open ? "Cerrar menú" : "Abrir menú"}
+        aria-expanded={open}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      <div className={`mobile-menu-panel ${open ? "is-open" : ""}`}>
+        {navItems.map((item) => (
+          <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            {item.label}
           </a>
-        </div>
+        ))}
+
+        <a
+          className="mobile-menu-cta"
+          href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => setOpen(false)}
+        >
+          Agendar consulta
+        </a>
       </div>
     </header>
   );
