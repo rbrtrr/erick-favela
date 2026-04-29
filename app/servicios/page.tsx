@@ -38,40 +38,146 @@ const processItems = [
 export default function ServiciosPage() {
   return (
     <main className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <div className={styles.nav}>
-            <Link href="/" className={styles.logoWrap}>
-              <img
-                src="/logo-header.png"
-                alt="Logo Erick Favela"
-                className={styles.logo}
-              />
-              <div>
-                <p className={styles.logoTitle}>Nutriólogo Erick Favela</p>
-                <p className={styles.logoSubtitle}>Mexicali · Online · USA</p>
-              </div>
-            </Link>
+<header
+  style={{
+    width: "100%",
+    padding: "14px 18px",
+    background: "#ffffff",
+    borderBottom: "1px solid rgba(0,0,0,0.08)",
+    position: "relative",
+    zIndex: 50,
+  }}
+>
+  <div
+    style={{
+      width: "100%",
+      maxWidth: "1180px",
+      margin: "0 auto",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: "18px",
+      flexWrap: "wrap",
+    }}
+  >
+    <a
+      href="/"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+        textDecoration: "none",
+        color: "#111",
+      }}
+    >
+      <img
+        src="/logo-header.png"
+        alt="Logo Erick Favela"
+        style={{
+          width: "42px",
+          height: "42px",
+          objectFit: "contain",
+          borderRadius: "50%",
+        }}
+      />
 
-            <nav className={styles.menu}>
-              <Link href="/">Inicio</Link>
-              <Link href="/servicios">Servicios</Link>
-              <Link href="/resultados">Resultados</Link>
-              <Link href="/contacto">Contacto</Link>
-            </nav>
+      <div>
+        <p
+          style={{
+            margin: 0,
+            fontSize: "15px",
+            fontWeight: 800,
+            lineHeight: 1.1,
+          }}
+        >
+          Nutriólogo Erick Favela
+        </p>
 
-            <a
-              className={styles.cta}
-              href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
-              target="_blank"
-              rel="noreferrer"
-            >
-              Agendar
-            </a>
-          </div>
-        </div>
-      </header>
+        <p
+          style={{
+            margin: "3px 0 0",
+            fontSize: "12px",
+            color: "rgba(0,0,0,0.55)",
+            lineHeight: 1,
+          }}
+        >
+          Mexicali · Online · USA
+        </p>
+      </div>
+    </a>
 
+    <nav
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        flexWrap: "wrap",
+      }}
+    >
+      <a
+        href="/servicios"
+        style={{
+          padding: "10px 13px",
+          borderRadius: "999px",
+          background: "#f4f4f4",
+          color: "#111",
+          textDecoration: "none",
+          fontSize: "14px",
+          fontWeight: 700,
+        }}
+      >
+        Servicios
+      </a>
+
+      <a
+        href="/resultados"
+        style={{
+          padding: "10px 13px",
+          borderRadius: "999px",
+          background: "#f4f4f4",
+          color: "#111",
+          textDecoration: "none",
+          fontSize: "14px",
+          fontWeight: 700,
+        }}
+      >
+        Resultados
+      </a>
+
+      <a
+        href="/contacto"
+        style={{
+          padding: "10px 13px",
+          borderRadius: "999px",
+          background: "#f4f4f4",
+          color: "#111",
+          textDecoration: "none",
+          fontSize: "14px",
+          fontWeight: 700,
+        }}
+      >
+        Contacto
+      </a>
+
+      <a
+        href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
+        target="_blank"
+        rel="noreferrer"
+        style={{
+          padding: "10px 15px",
+          borderRadius: "999px",
+          background: "#111",
+          color: "#fff",
+          textDecoration: "none",
+          fontSize: "14px",
+          fontWeight: 800,
+        }}
+      >
+        Agendar
+      </a>
+    </nav>
+  </div>
+</header> 
       <section className={styles.hero}>
         <div className={styles.container}>
           <div className={styles.heroGrid}>
