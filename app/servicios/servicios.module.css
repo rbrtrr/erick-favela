@@ -135,20 +135,81 @@
 }
 
 .card {
-  background: #f6c230;
-  border-radius: 28px;
-  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 15%, rgba(255, 255, 255, 0.85), transparent 18%),
+    linear-gradient(
+      135deg,
+      #fff3a6 0%,
+      #ffd84d 18%,
+      #f6b800 42%,
+      #d58a00 72%,
+      #8f4f00 100%
+    );
+  border-radius: 26px;
+  padding: 32px;
+  border: 1px solid rgba(143, 79, 0, 0.26);
+  box-shadow:
+    0 24px 65px rgba(213, 138, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -18px 38px rgba(95, 53, 0, 0.16);
+  color: #080808;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.42) 28%,
+      transparent 48%
+    );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 244, 175, 0.42);
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  filter: saturate(1.08) contrast(1.03);
+  box-shadow:
+    0 32px 82px rgba(213, 138, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 -18px 38px rgba(95, 53, 0, 0.18);
 }
 
 .card h3 {
-  font-size: 22px;
-  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+  font-size: 23px;
+  margin-bottom: 12px;
+  color: #050505;
+  font-weight: 900;
+  letter-spacing: -0.045em;
 }
 
 .card p {
-  font-size: 17px;
+  position: relative;
+  z-index: 1;
+  color: rgba(5, 5, 5, 0.72);
   line-height: 1.7;
-  color: #4d4d4d;
+  font-weight: 650;
 }
 
 .sectionTitle {

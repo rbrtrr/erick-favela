@@ -1,20 +1,24 @@
-import "./globals.css";
 import type { Metadata } from "next";
+import "./globals.css";
+import Header from "./components/Header";
 
 export const metadata: Metadata = {
-  title: "Nutriólogo Erick Favela | Nutrición en Mexicali y Online",
+  title: "Nutriólogo Erick Favela",
   description:
-    "Sitio oficial de Nutriólogo Erick Favela. Consulta presencial en Mexicali y atención online para México y USA.",
+    "Consulta nutricional presencial en Mexicali y online para México y USA.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

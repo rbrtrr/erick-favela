@@ -1,80 +1,96 @@
 "use client";
 
-import { useState } from "react";
-import Reveal from "./Reveal";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import styles from "./Header.module.css";
 
 const navItems = [
-  { label: "Sobre Erick", href: "/about" },
-  { label: "Servicios", href: "/servicios" },
-  { label: "Resultados", href: "/resultados" },
-  { label: "Contacto", href: "/contacto" },
+  {
+    label: "Servicios",
+    href: "/servicios",
+  },
+  {
+    label: "Resultados",
+    href: "/resultados",
+  },
+  {
+    label: "Casos de éxito",
+    href: "/casos-de-exito",
+  },
+  {
+    label: "Contacto",
+    href: "/contacto",
+  },
 ];
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 18);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
-    <header className="site-header">
-      <Reveal delay={0.08} mode="load">
-        <a href="/" className="brand">
-          <div className="brand-mark">EF</div>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
+      <Link href="/" className={styles.brand} onClick={closeMenu}>
+        <div className={styles.logoMark}>
+          <img src="/favicon.ico" alt="Nutriólogo Erick Favela" />
+        </div>
 
-          <div className="brand-copy">
-            <p className="logo-title">Nutriólogo Erick Favela</p>
-            <p className="logo-subtitle">Mexicali · Online · USA</p>
-          </div>
-        </a>
-      </Reveal>
-
-      <Reveal delay={0.15} mode="load">
-        <nav className="menu desktop-menu">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </Reveal>
-
-      <Reveal delay={0.22} mode="load">
-        <a
-          className="btn btn-primary desktop-cta"
-          href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
-          target="_blank"
-          rel="noreferrer"
-        >
-          Agendar
-        </a>
-      </Reveal>
+        <div className={styles.brandText}>
+          <strong>Nutriólogo Erick Favela</strong>
+          <span>Mexicali · Online · USA</span>
+        </div>
+      </Link>
 
       <button
-        className={`mobile-menu-button ${open ? "is-open" : ""}`}
         type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        aria-label={open ? "Cerrar menú" : "Abrir menú"}
-        aria-expanded={open}
+        className={`${styles.menuButton} ${
+          menuOpen ? styles.menuButtonOpen : ""
+        }`}
+        onClick={() => setMenuOpen((current) => !current)}
+        aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+        aria-expanded={menuOpen}
       >
         <span />
         <span />
         <span />
       </button>
 
-      <div className={`mobile-menu-panel ${open ? "is-open" : ""}`}>
-        {navItems.map((item) => (
-          <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
-            {item.label}
-          </a>
-        ))}
+      <div className={`${styles.navWrap} ${menuOpen ? styles.navWrapOpen : ""}`}>
+        <nav className={styles.nav} aria-label="Navegación principal">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} onClick={closeMenu}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-        <a
-          className="mobile-menu-cta"
-          href="https://wa.me/526861234567?text=Hola%20Erick%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20consulta."
-          target="_blank"
-          rel="noreferrer"
-          onClick={() => setOpen(false)}
-        >
+        <Link href="/agendar" className={styles.cta} onClick={closeMenu}>
           Agendar consulta
-        </a>
+        </Link>
       </div>
     </header>
   );
